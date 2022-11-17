@@ -1,0 +1,70 @@
+<?php
+    ob_start();
+?>
+
+<?php
+    include_once "include_admin/admin_header.php";
+?>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <?php
+            include_once "include_admin/admin_nav.php";
+        ?>
+
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Welcome to View Post
+                            <small>View All Posts</small>
+                        </h1>
+
+                        <?php
+                            if(isset($_GET['source'])){
+                                $source = $_GET['source'];
+                            }else{
+                                $source = "";
+                            }
+
+                            switch($source){
+                                case 'add_post': include_once "include_admin/add_post.php";
+                                break;
+
+                                case 'edit_post': include_once "include_admin/edit_post.php";
+                                break;
+
+                                default: include_once "include_admin/view_all_posts.php";
+                                break;
+                            }
+                        ?>
+                    </div>
+                </div>
+                <!-- /.row -->
+                
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- confirm delete post -->
+    <!-- check all box -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
